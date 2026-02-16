@@ -1,0 +1,28 @@
+{
+  "labName": {
+    "ko": "지능형 보안 연구실",
+    "en": "Intelligent Security Lab"
+  },
+  "university": {
+    "ko": "국립군산대학교",
+    "en": "Kunsan National University"
+  },
+  "department": {
+    "ko": "컴퓨터정보공학과",
+    "en": "Department of Computer and Information Engineering"
+  },
+  "address": {
+    "ko": "전북특별자치도 군산시 대학로 558 국립군산대학교 디지털정보관",
+    "en": "Digital Information Building, Kunsan National University, 558 Daehak-ro, Gunsan-si, Jeonbuk"
+  },
+  "phone": "063-469-****",
+  "email": "dgkwon@kunsan.ac.kr",
+  "banner": {
+    "text": {
+      "ko": "신입생 모집 중",
+      "en": "Recruiting Graduate Students"
+    },
+    "link": "https://forms.gle/1JG4abuVnYiwiLTL6",
+    "enabled": true
+  }
+}

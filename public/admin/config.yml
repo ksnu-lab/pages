@@ -1,0 +1,373 @@
+backend:
+  name: github
+  repo: ksnu-lab/pages
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "ko"
+
+collections:
+  # ── 홈 ──
+  - name: "home"
+    label: "홈"
+    files:
+      - name: "siteConfig"
+        label: "사이트 기본 정보"
+        file: "src/data/siteConfig.json"
+        fields:
+          - label: "연구실 이름"
+            name: "labName"
+            widget: "object"
+            fields:
+              - { label: "한국어", name: "ko", widget: "string" }
+              - { label: "English", name: "en", widget: "string" }
+          - label: "대학교"
+            name: "university"
+            widget: "object"
+            fields:
+              - { label: "한국어", name: "ko", widget: "string" }
+              - { label: "English", name: "en", widget: "string" }
+          - label: "학과"
+            name: "department"
+            widget: "object"
+            fields:
+              - { label: "한국어", name: "ko", widget: "string" }
+              - { label: "English", name: "en", widget: "string" }
+          - label: "주소"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "한국어", name: "ko", widget: "string" }
+              - { label: "English", name: "en", widget: "string" }
+          - { label: "전화번호", name: "phone", widget: "string" }
+          - { label: "이메일", name: "email", widget: "string" }
+          - label: "배너"
+            name: "banner"
+            widget: "object"
+            fields:
+              - label: "배너 텍스트"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "string" }
+                  - { label: "English", name: "en", widget: "string" }
+              - { label: "링크", name: "link", widget: "string", hint: "예: /contact" }
+              - { label: "활성화", name: "enabled", widget: "boolean", default: true }
+
+  # ── 구성원 ──
+  - name: "members"
+    label: "구성원"
+    files:
+      - name: "professor"
+        label: "지도교수"
+        file: "src/data/professor.json"
+        fields:
+          - label: "이름"
+            name: "name"
+            widget: "object"
+            fields:
+              - { label: "한국어", name: "ko", widget: "string" }
+              - { label: "English", name: "en", widget: "string" }
+          - label: "직함"
+            name: "title"
+            widget: "object"
+            fields:
+              - { label: "한국어", name: "ko", widget: "string" }
+              - { label: "English", name: "en", widget: "string" }
+          - { label: "사진", name: "photo", widget: "image", required: false }
+          - { label: "이메일", name: "email", widget: "string" }
+          - { label: "전화번호", name: "phone", widget: "string" }
+          - { label: "연구실 위치", name: "office", widget: "string" }
+          - label: "학력"
+            name: "education"
+            widget: "list"
+            summary: "{{fields.degree}} - {{fields.institution}} ({{fields.year}})"
+            fields:
+              - { label: "학위", name: "degree", widget: "string" }
+              - { label: "기관", name: "institution", widget: "string" }
+              - { label: "연도", name: "year", widget: "number", value_type: "int" }
+          - label: "경력"
+            name: "career"
+            widget: "list"
+            summary: "{{fields.position}} - {{fields.organization}} ({{fields.period}})"
+            fields:
+              - { label: "직위", name: "position", widget: "string" }
+              - { label: "기관", name: "organization", widget: "string" }
+              - { label: "기간", name: "period", widget: "string" }
+          - label: "연구 관심 분야"
+            name: "researchInterests"
+            widget: "list"
+            field: { label: "분야", name: "interest", widget: "string" }
+          - label: "수상 이력"
+            name: "awards"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { label: "수상명", name: "title", widget: "string" }
+              - { label: "연도", name: "year", widget: "number", value_type: "int" }
+              - { label: "수여 기관", name: "organization", widget: "string" }
+          - label: "외부 링크"
+            name: "links"
+            widget: "object"
+            fields:
+              - { label: "Google Scholar", name: "googleScholar", widget: "string", required: false }
+              - { label: "DBLP", name: "dblp", widget: "string", required: false }
+              - { label: "ORCID", name: "orcid", widget: "string", required: false }
+
+      - name: "membersList"
+        label: "연구실 구성원"
+        file: "src/data/members.json"
+        fields:
+          - label: "구성원 목록"
+            name: "members"
+            widget: "list"
+            summary: "{{fields.name.ko}} ({{fields.role}})"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "고유 식별자 (예: member-5)" }
+              - label: "이름"
+                name: "name"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "string" }
+                  - { label: "English", name: "en", widget: "string" }
+              - { label: "사진", name: "photo", widget: "image", required: false }
+              - { label: "이메일", name: "email", widget: "string" }
+              - label: "구분"
+                name: "role"
+                widget: "select"
+                options:
+                  - { label: "박사후연구원", value: "postdoc" }
+                  - { label: "박사과정", value: "phd" }
+                  - { label: "석사과정", value: "ms" }
+                  - { label: "학부연구생", value: "undergraduate" }
+              - { label: "입학 연도", name: "enrollYear", widget: "number", value_type: "int" }
+              - label: "연구 관심 분야"
+                name: "researchInterests"
+                widget: "list"
+                field: { label: "분야", name: "interest", widget: "string" }
+              - { label: "홈페이지", name: "homepage", widget: "string", required: false }
+
+      - name: "alumniList"
+        label: "졸업생"
+        file: "src/data/alumni.json"
+        fields:
+          - label: "졸업생 목록"
+            name: "alumni"
+            widget: "list"
+            summary: "{{fields.name.ko}} ({{fields.degree}}, {{fields.graduationYear}})"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "고유 식별자 (예: alumni-4)" }
+              - label: "이름"
+                name: "name"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "string" }
+                  - { label: "English", name: "en", widget: "string" }
+              - label: "학위"
+                name: "degree"
+                widget: "select"
+                options: ["PhD", "MS"]
+              - { label: "입학 연도", name: "enrollYear", widget: "number", value_type: "int" }
+              - { label: "졸업 연도", name: "graduationYear", widget: "number", value_type: "int" }
+              - { label: "현 소속", name: "currentAffiliation", widget: "string", required: false }
+              - { label: "현 직위", name: "currentPosition", widget: "string", required: false }
+              - { label: "논문 제목", name: "thesisTitle", widget: "string", required: false }
+
+  # ── 연구 분야 ──
+  - name: "research"
+    label: "연구 분야"
+    files:
+      - name: "researchAreas"
+        label: "연구 분야 목록"
+        file: "src/data/research.json"
+        fields:
+          - label: "연구 분야"
+            name: "research"
+            widget: "list"
+            summary: "{{fields.title.ko}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "고유 식별자 (예: cryptography)" }
+              - label: "분야명"
+                name: "title"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "string" }
+                  - { label: "English", name: "en", widget: "string" }
+              - label: "설명"
+                name: "description"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "text" }
+                  - { label: "English", name: "en", widget: "text" }
+              - { label: "이미지", name: "image", widget: "image", required: false }
+              - label: "키워드"
+                name: "keywords"
+                widget: "list"
+                field: { label: "키워드", name: "keyword", widget: "string" }
+
+  # ── 연구 성과 ──
+  - name: "publications"
+    label: "연구 성과"
+    files:
+      - name: "publicationsList"
+        label: "논문 목록"
+        file: "src/data/publications.json"
+        fields:
+          - label: "논문 목록"
+            name: "publications"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { label: "ID", name: "id", widget: "string", required: true, hint: "고유 식별자 (예: pub-16)" }
+              - { label: "논문 제목", name: "title", widget: "string", required: true }
+              - label: "저자"
+                name: "authors"
+                widget: "list"
+                field: { label: "저자명", name: "author", widget: "string" }
+              - { label: "학술지/학회", name: "venue", widget: "string", required: true }
+              - { label: "연도", name: "year", widget: "number", value_type: "int", required: true }
+              - label: "구분"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "국제 논문", value: "international" }
+                  - { label: "국내 논문", value: "domestic" }
+                default: "international"
+
+  # ── 프로젝트 ──
+  - name: "projects"
+    label: "프로젝트"
+    files:
+      - name: "projectsList"
+        label: "과제 목록"
+        file: "src/data/projects.json"
+        fields:
+          - label: "과제 목록"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title.ko}} ({{fields.period}})"
+            fields:
+              - { label: "ID", name: "id", widget: "string", required: true, hint: "고유 식별자 (예: project-17)" }
+              - label: "과제명"
+                name: "title"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "string", required: true }
+                  - { label: "English", name: "en", widget: "string", required: true }
+              - label: "위탁기관"
+                name: "funder"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "string", required: true }
+                  - { label: "English", name: "en", widget: "string", required: true }
+              - { label: "기간", name: "period", widget: "string", required: true, hint: "예: 2022.01 - 2024.12" }
+              - label: "설명"
+                name: "description"
+                widget: "object"
+                fields:
+                  - { label: "한국어", name: "ko", widget: "text", required: false }
+                  - { label: "English", name: "en", widget: "text", required: false }
+
+  # ── 연구실 소식 ──
+  - name: "news"
+    label: "연구실 소식"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    identifier_field: "title_ko"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - label: "제목 (한국어)"
+        name: "title_ko"
+        widget: "string"
+        required: true
+
+      - label: "Title (English)"
+        name: "title_en"
+        widget: "string"
+        required: false
+
+      - label: "날짜"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
+      - label: "카테고리"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "공지", value: "announcement" }
+          - { label: "논문", value: "publication" }
+          - { label: "수상", value: "award" }
+          - { label: "행사", value: "event" }
+          - { label: "일반", value: "general" }
+        default: "general"
+
+      - label: "요약 (한국어)"
+        name: "summary_ko"
+        widget: "string"
+        required: false
+
+      - label: "Summary (English)"
+        name: "summary_en"
+        widget: "string"
+        required: false
+
+      - label: "썸네일"
+        name: "thumbnail"
+        widget: "image"
+        required: false
+
+      - label: "홈페이지 고정"
+        name: "pinned"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "활성화하면 홈페이지 소식 목록 맨 앞에 고정됩니다"
+
+      - label: "본문"
+        name: "body"
+        widget: "markdown"
+
+  # ── 지원 안내 ──
+  - name: "faq"
+    label: "지원 안내"
+    folder: "src/content/faq"
+    create: true
+    slug: "{{fields.order}}-{{slug}}"
+    identifier_field: "question_ko"
+    extension: "mdx"
+    format: "frontmatter"
+    sortable_fields: ["order"]
+    fields:
+      - label: "질문 (한국어)"
+        name: "question_ko"
+        widget: "string"
+        required: true
+
+      - label: "Question (English)"
+        name: "question_en"
+        widget: "string"
+        required: false
+
+      - label: "답변 (한국어)"
+        name: "answer_ko"
+        widget: "text"
+        required: true
+
+      - label: "Answer (English)"
+        name: "answer_en"
+        widget: "text"
+        required: false
+
+      - label: "순서"
+        name: "order"
+        widget: "number"
+        value_type: "int"
+        required: true
+        hint: "낮은 숫자가 위에 표시됩니다"
