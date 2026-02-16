@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[68504,["/pages/_next/static/chunks/043431ec1520ae4d.js"],"default"]
+3:I[39756,["/pages/_next/static/chunks/ff1a16fafef87110.js","/pages/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+4:I[37457,["/pages/_next/static/chunks/ff1a16fafef87110.js","/pages/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+5:I[22016,["/pages/_next/static/chunks/043431ec1520ae4d.js","/pages/_next/static/chunks/3bee2903c1403fbd.js"],""]
+:HL["/pages/_next/static/chunks/33fbac3e179a93f8.css","style"]
+0:{"buildId":"ElXzaJknHZljdROTu0uwn","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pages/_next/static/chunks/33fbac3e179a93f8.css","precedence":"next"}],["$","script","script-0",{"src":"/pages/_next/static/chunks/043431ec1520ae4d.js","async":true}]],["$","html",null,{"lang":"ko","children":["$","body",null,{"className":"antialiased min-h-screen flex flex-col","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[["$","div",null,{"className":"max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center","children":[["$","h1",null,{"className":"text-6xl font-bold text-gray-200 mb-4","children":"404"}],["$","p",null,{"className":"text-xl text-gray-500 mb-8","children":"Page not found"}],["$","$L5",null,{"href":"/","className":"inline-block bg-primary-600 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-primary-700 transition-colors","children":"Go Home"}]]}],[]]}]}]}]}]]}],"loading":null,"isPartial":false}
