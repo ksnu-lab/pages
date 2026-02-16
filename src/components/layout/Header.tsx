@@ -45,7 +45,7 @@ export default function Header() {
               <Link
                 key={item.key}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                className="px-3 py-2 text-sm font-bold text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 rounded-md hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
               >
                 {t(`nav.${item.key}`)}
               </Link>
@@ -110,7 +110,7 @@ export default function Header() {
                 key={item.key}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-900"
+                className="block px-3 py-2.5 text-sm font-bold text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-900"
               >
                 {t(`nav.${item.key}`)}
               </Link>
