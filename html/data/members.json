@@ -10,18 +10,7 @@
       ]
     }
   ],
-  "Researcher": [
-    {
-      "name": "TBA",
-      "role": "TBA"
-    }
-  ],
   "students": [
-    {
-      "name": "이재훈",
-      "role": "학부연구생",
-      "email": "conic0805 at naver.com"
-    },
     {
       "name": "김경원",
       "role": "학부연구생",
@@ -32,7 +21,17 @@
       "name": "김종운",
       "role": "학부연구생",
       "email": "jougunkim at gmail.com"
+    },
+    {
+      "name": "조서영",
+      "role": "학부연구생",
+      "email": "younightlight at gmail.com"
     }
   ],
-  "alumni": []
+  "alumni": [
+       {
+      "name": "이재훈",
+      "role": "학부연구생, 인턴"
+    }
+  ]
 }
