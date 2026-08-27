@@ -4,6 +4,13 @@
     {
       "year": 2026,
       "type": "international",
+      "title": "Revisiting Side-Channel Resistance of GCM Implementations on AVR Microcontrollers",
+      "authors": "I Kim, H Shin, S Kim, S Hong, G Cho, HS Kim, D Kwon",
+      "venue": "IEEE Access"
+    },
+    {
+      "year": 2026,
+      "type": "international",
       "title": "Optimizing Polynomial Multiplication and Fixed-Weight Sampling for HQC on ARM Cortex-M4",
       "authors": "J. Jang, H. Shin, S. Kim, S. Hong, D. Kwon",
       "venue": "Cryptology ePrint Archive"
